@@ -1,0 +1,81 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Scan - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">Green Scan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <section class="hero d-flex align-items-center">
+    <div class="container text-center hero-content">
+      <h1>Welcome to Green Scan</h1>
+      <p>Your AI-powered tool for crop disease detection</p>
+      <div class="mt-4">
+        <a href="/prediction" class="btn btn-success btn-lg">Prediction</a>
+        <a href="/gettoknow" class="btn btn-success btn-lg">Get to know</a>
+      </div>
+      
+    </div>
+  </section>
+  
+  <section class="py-5">
+    <div class="container text-center">
+      <h2>How to Use</h2>
+      <p>Upload a clear image of a plant leaf on the Prediction page. Our system will analyze the image, detect the disease, provide a detailed diagnosis, and offer cure recommendations.</p>
+    </div>
+  </section>
+  
+  <footer class="py-3">
+    <div class="container text-center">
+      <p>© 2025 Green Scan. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>(function(){
+  if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+      window.chatbase=(...arguments)=>{
+          if(!window.chatbase.q){window.chatbase.q=[]}
+          window.chatbase.q.push(arguments)
+      };
+      window.chatbase=new Proxy(window.chatbase,{
+          get(target,prop){
+              if(prop==="q"){return target.q}
+              return(...args)=>target(prop,...args)
+          }
+      })
+  }
+  const onLoad=function(){
+      const script=document.createElement("script");
+      script.src="https://www.chatbase.co/embed.min.js";
+      script.id="5hzS_NxKSXDD4gy4zdQ-u"; 
+      script.domain="www.chatbase.co";
+      document.body.appendChild(script)
+  };
+  if(document.readyState==="complete"){onLoad()}
+  else{window.addEventListener("load",onLoad)}
+})();</script>
+  
+</body>
+</html>

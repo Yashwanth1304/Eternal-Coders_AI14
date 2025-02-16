@@ -1,0 +1,117 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Green Scan - Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">Green Scan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Upload a Plant Leaf Image for Disease Prediction</h2>
+      <form method="POST" action="/prediction" enctype="multipart/form-data">
+        <div class="mb-3">
+          <input class="form-control" type="file" name="file" accept="image/*" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success btn-lg">Predict Disease</button>
+        </div>
+      </form>
+      {% if error %}
+      <div class="alert alert-danger mt-3 text-center" role="alert">
+        {{ error }}
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  
+  {% if disease %}
+  <section class="py-5">
+    <div class="container">
+      <div class="card result-card mb-4">
+        <div class="row g-0">
+          {% if file_path %}
+          <div class="col-md-4">
+            
+            <img src="{{ url_for('static', filename='uploads/' ~ file_path) }}" class="img-fluid rounded-start" alt="Uploaded Image">
+          </div>
+          {% endif %}
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Predicted Disease: {{ disease }}</h5>
+              <p class="card-text"><strong>Diagnosis:</strong> {{ diagnosis }}</p>
+              {% if sample_images %}
+              <div class="mb-3">
+                <h6>Example Images:</h6>
+                {% for img in sample_images %}
+                  
+                  <img src="{{ url_for('plant_dataset', filename=img.split('/')[-1]) }}" alt="Example Image" class="img-thumbnail me-2" style="max-width: 100px;">
+                {% endfor %}
+              </div>
+              {% endif %}
+              <a href="/cure?disease={{ disease }}" class="btn btn-outline-success">View Cure Recommendations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+  
+  <footer class="py-3">
+    <div class="container text-center">
+      <p>© 2025 Green Scan. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>(function(){
+    if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+        window.chatbase=(...arguments)=>{
+            if(!window.chatbase.q){window.chatbase.q=[]}
+            window.chatbase.q.push(arguments)
+        };
+        window.chatbase=new Proxy(window.chatbase,{
+            get(target,prop){
+                if(prop==="q"){return target.q}
+                return(...args)=>target(prop,...args)
+            }
+        })
+    }
+    const onLoad=function(){
+        const script=document.createElement("script");
+        script.src="https://www.chatbase.co/embed.min.js";
+        script.id="5hzS_NxKSXDD4gy4zdQ-u"; 
+        script.domain="www.chatbase.co";
+        document.body.appendChild(script)
+    };
+    if(document.readyState==="complete"){onLoad()}
+    else{window.addEventListener("load",onLoad)}
+  })();</script>
+</body>
+</html>
