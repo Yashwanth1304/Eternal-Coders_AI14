@@ -1,7 +1,7 @@
 
-# Eternal-Coders_AI14 (AI crop disease prediction and management)
+# AI crop disease prediction and management
 
-Eternal-Coders_AI14 (AI crop disease prediction and management) is a plant disease detection application that leverages deep learning techniques. The application uses TensorFlow's MobileNetV2 model to identify plant diseases from leaf images. It also integrates with MongoDB for data storage.
+AI crop disease prediction and management is a plant disease detection application that leverages deep learning techniques. The application uses TensorFlow's MobileNetV2 model to identify plant diseases from leaf images. It also integrates with MongoDB for data storage.
 
 ## Features
 - Upload leaf images to detect plant diseases.
