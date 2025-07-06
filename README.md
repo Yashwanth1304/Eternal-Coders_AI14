@@ -43,7 +43,7 @@
 
 GreenScan follows a well-structured AI pipeline to detect crop diseases from images and provide appropriate cure recommendations.
 
-### 🔁 How It Works
+### How It Works
 
 1. **Image Upload via Web Interface**  
    Users upload a plant leaf image through the Flask-based web UI.
@@ -62,7 +62,7 @@ GreenScan follows a well-structured AI pipeline to detect crop diseases from ima
 
 ---
 
-### 🗂️ Workflow Summary
+### Workflow Summary
 User Uploads Image
         ↓
 Flask Receives Image
