@@ -1,67 +1,79 @@
+# GreenScan – AI-Based Crop Disease Detection and Cure Assistant  
+**Presented at INFOTHON 4.0**
 
-# AI crop disease prediction and management
+**GreenScan** is an intelligent web-based system designed to help farmers and agricultural workers identify crop diseases early by simply uploading a leaf image. It provides accurate disease detection, relevant cure suggestions, and even chatbot support for unknown cases — all without needing expert intervention.
 
-AI crop disease prediction and management is a plant disease detection application that leverages deep learning techniques. The application uses TensorFlow's MobileNetV2 model to identify plant diseases from leaf images. It also integrates with MongoDB for data storage.
+---
 
-## Features
-- Upload leaf images to detect plant diseases.
-- Uses MobileNetV2 for efficient image classification.
-- Web interface built with Flask.
-- Stores results in MongoDB.
+## What GreenScan Offers
 
-## Prerequisites
-- Python 3.x
-- MongoDB
+- **Leaf Image Diagnosis** – Upload images of infected plant leaves to get disease predictions.  
+- **AI-Based Detection** – Uses a deep learning model to identify 38 different crop diseases.  
+- **Cure Recommendations** – Displays relevant cures and treatments stored in the database.  
+- **Chatbot Support** – If the disease is unknown, describe the symptoms to get NLP-based help.  
+- **Farmer Friendly** – Provides guidance in simple language, minimizing dependence on agronomists.  
 
-## Installation
+---
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/Yashwanth1304/Eternal-Coders_AI14.git
-    cd Eternal-Coders_AI14
-    ```
+## How It Helps
 
-2. Install the required dependencies:
-    ```bash
-    pip install tensorflow flask Pillow opencv-python-headless numpy pymongo
-    ```
+### GreenScan empowers farmers to:
 
-3. Ensure MongoDB is running on your system.
+- Detect diseases early, reducing crop loss.  
+- Get reliable, instant solutions anytime, anywhere.  
+- Make informed decisions without waiting for expert visits.  
+- Use an easy web interface built for both mobile and desktop.
 
-## Usage
+---
 
-1. Start the Flask server:
-    ```bash
-    python app.py
-    ```
+## Technologies Used
 
-2. Open your browser and go to `http://localhost:5000` to use the application.
+| **Category**         | **Tools/Frameworks Used**                      |
+|----------------------|------------------------------------------------|
+| Deep Learning         | TensorFlow, MobileNetV2                        |
+| Image Processing      | OpenCV, Pillow, NumPy                          |
+| Backend/API           | Flask (Python)                                 |
+| Database              | MongoDB, PyMongo                               |
+| Chatbot/NLP           | Custom NLP logic for user-described symptoms   |
+| Frontend              | HTML, CSS (via Flask templates)                |
+| Development Tools     | Jupyter Notebook, Postman, dotenv              |
 
-## Project Structure
-```
-Eternal-Coders_AI14/
-│   app.py                    # Main application file
-│   model_development.ipynb   # Jupyter notebook for model development
-│   requirements.txt          # List of dependencies
-│
-├── static/                   # Static image assets
-│   └── ...                   # Leaf images for disease detection
-├── plant disease/            # Diseased plant images
-│   └── ... 
-└── templates/                # HTML templates for the web interface
-    └── ...                   # HTML files for Flask routing
-```
+---
+## Technical Workflow
 
-## Dependencies
-- Flask
-- TensorFlow
-- Pillow
-- OpenCV
-- NumPy
-- PyMongo
+GreenScan follows a well-structured AI pipeline to detect crop diseases from images and provide appropriate cure recommendations.
 
-## Acknowledgements
-This project is developed by our team Eternal Coders as part of Hackathon. Special thanks to the team for their dedication.
+### 🔁 How It Works
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. **Image Upload via Web Interface**  
+   Users upload a plant leaf image through the Flask-based web UI.
+
+2. **Image Preprocessing**  
+   The uploaded image is resized, normalized, and converted to array format using OpenCV, Pillow, and NumPy.
+
+3. **AI-Based Prediction**  
+   The pre-trained MobileNetV2 (TensorFlow) model predicts the disease from 38 trained classes with high accuracy.
+
+4. **Cure Retrieval from MongoDB**  
+   Based on the predicted disease, the system queries MongoDB to fetch pre-stored cure details and displays them.
+
+5. **Fallback: Chatbot for Unrecognized Symptoms**  
+   If the disease isn’t confidently predicted, users can describe the symptoms in text. The integrated NLP chatbot parses the description and maps it to known diseases using a keyword-based approach, then suggests matching cures.
+
+---
+
+### 🗂️ Workflow Summary
+User Uploads Image
+        ↓
+Flask Receives Image
+        ↓
+Image Preprocessed (Pillow, OpenCV)
+        ↓
+MobileNetV2 Model Predicts Disease
+        ↓
+MongoDB Returns Cure for Prediction
+        ↓
+Cure + Info Displayed to User
+        ↓
+(If unknown → NLP Chatbot → Symptom Match → Cure)
+
