@@ -64,16 +64,16 @@ GreenScan follows a well-structured AI pipeline to detect crop diseases from ima
 
 ### Workflow Summary
 User Uploads Image
-↓
-Flask Receives Image
-↓
-Image Preprocessed (Pillow, OpenCV, NumPy)
-↓
-MobileNetV2 Model Predicts Disease (TensorFlow)
-↓
-MongoDB Returns Cure Information
-↓
-Cure + Info Displayed to User
-↓
-(If Unknown → NLP Chatbot → Symptom Match → Cure Suggestion)
+       ↓
+       Flask Receives Image
+                ↓
+                Image Preprocessed (Pillow, OpenCV, NumPy)
+                                  ↓
+                                  MobileNetV2 Model Predicts Disease (TensorFlow)
+                                                      ↓
+                                                      MongoDB Returns Cure Information
+                                                                      ↓
+                                                                      Cure + Info Displayed to User
+                                                                                     ↓
+                                                                                     (If Unknown → NLP Chatbot → Symptom Match → Cure Suggestion)
 
